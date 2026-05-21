@@ -1,0 +1,1368 @@
+
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Tour Portogallo: Lisbona - Porto (AI Powered)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            950: '#4c0519',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .7; transform: scale(1.08); }
+        }
+        .map-node {
+            transition: all 0.3s ease;
+        }
+        .map-node:hover {
+            fill: #f43f5e !important;
+            filter: drop-shadow(0px 0px 8px rgba(244, 63, 94, 0.9));
+            cursor: pointer;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen custom-scroll">
+
+    <header class="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-900 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-rose-500/10 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 mb-4">
+                        <i class="fas fa-magic"></i> Road Trip Portogallo Atlantico con AI Integrata 2026
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-serif">
+                        Da Lisbona a Porto <span class="text-rose-500">in Auto</span>
+                    </h1>
+                    <p class="text-slate-400 mt-4 text-sm sm:text-lg max-w-3xl leading-relaxed">
+                        Il viaggio panoramico definitivo lungo la Costa d'Argento. Esplora borghi fortificati, fari monumentali, con il <span class="text-rose-400 font-bold underline decoration-wavy">passaggio a Nazaré</span> e le nostre esclusive funzionalità AI per pianificare e viaggiare al meglio.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-3 shrink-0">
+                    <button onclick="scrollToSection('ai-assistant-hub')" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-indigo-500/25 text-sm flex items-center gap-2">
+                        <i class="fas fa-robot"></i> Prova l'Assistente AI
+                    </button>
+                    <button onclick="scrollToSection('itinerari-gps')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold px-5 py-3.5 rounded-xl transition-all text-sm flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt"></i> Scarica Rotte GPS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Sezione Statistiche Rapide & Mappa Interattiva -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            
+            <!-- Widget Info Viaggio -->
+            <div class="bg-slate-900 border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-6 flex items-center gap-2.5">
+                        <i class="fas fa-info-circle text-rose-500"></i> Dettagli della Rotta
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800/60 pb-3">
+                            <span class="text-slate-400 text-sm">Partenza</span>
+                            <span class="text-rose-400 font-bold text-sm">Lisbona</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-800/60 pb-3">
+                            <span class="text-slate-400 text-sm">Tappa Obbligatoria</span>
+                            <span class="text-amber-400 font-bold text-sm"><i class="fas fa-star"></i> Nazaré (Faro)</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-800/60 pb-3">
+                            <span class="text-slate-400 text-sm">Destinazione Principale</span>
+                            <span class="text-sky-400 font-bold text-sm">Porto</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-800/60 pb-3">
+                            <span class="text-slate-400 text-sm">Spiaggia delle Ancore</span>
+                            <span class="text-purple-400 font-bold text-sm">Vila Praia de Âncora</span>
+                        </div>
+                        <div class="flex items-center justify-between pb-1">
+                            <span class="text-slate-400 text-sm">Distanza Totale</span>
+                            <span class="text-emerald-400 font-bold text-sm">~ 395 km (Consigliati 3-4 giorni)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-800/80">
+                    <div class="bg-slate-950 rounded-xl p-4 border border-slate-850">
+                        <h4 class="text-xs font-bold uppercase text-slate-500 tracking-wider mb-2.5">Seleziona Tipo di Percorso:</h4>
+                        <div class="flex gap-2">
+                            <button id="btn-classic" onclick="toggleRoute('classic')" class="flex-1 bg-rose-600 text-white py-2 rounded-lg text-xs font-bold transition-all shadow-md">
+                                Solo Must-See
+                            </button>
+                            <button id="btn-grand" onclick="toggleRoute('grand')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 py-2 rounded-lg text-xs font-bold transition-all">
+                                Itinerario Esteso
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mappa Interattiva SVG -->
+            <div id="mappa-interattiva" class="bg-slate-900 border border-slate-800/80 rounded-2xl p-6 lg:col-span-2 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-serif text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt text-rose-500"></i> Tracciato Geografico Interattivo
+                    </h3>
+                    <span class="text-xs text-slate-500 italic hidden sm:inline">Clicca sui nodi per geolocalizzare su Google Maps</span>
+                </div>
+                
+                <div class="bg-slate-950 rounded-xl border border-slate-800/60 p-4 flex items-center justify-center relative min-h-[300px] overflow-hidden">
+                    <svg class="w-full max-w-[480px] h-[320px]" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Simulated Coastline -->
+                        <path d="M 110 5 L 240 5 L 260 140 Q 240 210 210 300 L 120 300 Q 100 230 90 150 Z" fill="#1e293b" opacity="0.15" stroke="#334155" stroke-width="1.5" stroke-dasharray="2 2" />
+                        
+                        <!-- Classic Route Line -->
+                        <path id="path-classic" d="M 140 220 L 115 200 L 110 150 L 120 120 L 155 70 L 165 40" fill="none" stroke="#f43f5e" stroke-width="4" class="transition-all duration-500" />
+                        
+                        <!-- Grand Extension (Anchor Beach Extension) -->
+                        <path id="path-grand-extension" d="M 165 40 L 150 15" fill="none" stroke="#a855f7" stroke-width="3" stroke-dasharray="4 4" class="opacity-30 transition-all duration-500" />
+
+                        <!-- Nodes (Interactive) -->
+                        <g class="map-node" onclick="focusStage('lisbona')">
+                            <circle cx="140" cy="220" r="8" fill="#f43f5e" class="pulse-slow"/>
+                            <text x="150" y="224" fill="#f8fafc" font-size="10" font-weight="bold">Lisbona</text>
+                        </g>
+                        <g class="map-node" onclick="focusStage('sintra')">
+                            <circle cx="115" cy="200" r="6" fill="#3b82f6"/>
+                            <text x="65" y="204" fill="#94a3b8" font-size="9">Sintra/Roca</text>
+                        </g>
+                        <g class="map-node" onclick="focusStage('obidos')">
+                            <circle cx="110" cy="150" r="6" fill="#10b981"/>
+                            <text x="68" y="154" fill="#94a3b8" font-size="9">Óbidos</text>
+                        </g>
+                        <g class="map-node" onclick="focusStage('nazare')">
+                            <circle cx="120" cy="120" r="8" fill="#f59e0b" class="pulse-slow"/>
+                            <text x="132" y="124" fill="#f8fafc" font-size="10" font-weight="bold">Nazaré (Faro)</text>
+                        </g>
+                        <g class="map-node" onclick="focusStage('aveiro')">
+                            <circle cx="155" cy="70" r="6" fill="#06b6d4"/>
+                            <text x="165" y="74" fill="#94a3b8" font-size="9">Costa Nova</text>
+                        </g>
+                        <g class="map-node" onclick="focusStage('porto')">
+                            <circle cx="165" cy="40" r="8" fill="#f43f5e" class="pulse-slow"/>
+                            <text x="175" y="44" fill="#f8fafc" font-size="10" font-weight="bold">Porto</text>
+                        </g>
+                        <g class="map-node" onclick="focusStage('ancora')">
+                            <circle cx="150" cy="15" r="7" fill="#a855f7"/>
+                            <text x="160" y="19" fill="#e2e8f0" font-size="10" font-weight="bold">Pr. Âncora</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE GEMINI AI COMPONENT -->
+        <section id="ai-assistant-hub" class="bg-gradient-to-br from-indigo-950/60 via-slate-900 to-slate-950 border border-violet-800/40 rounded-3xl p-6 sm:p-8 relative">
+            <div class="absolute top-0 right-0 p-4 opacity-5">
+                <i class="fas fa-brain text-[150px] text-violet-500"></i>
+            </div>
+            
+            <div class="relative z-10 space-y-6">
+                <div>
+                    <span class="bg-violet-500/10 text-violet-400 border border-violet-500/20 px-3 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-atom pulse-slow mr-1"></i> Gemini Cognitive Hub
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-2">Assistente AI di Viaggio & Generatore Cartoline</h2>
+                    <p class="text-slate-400 text-sm max-w-3xl">
+                        Interagisci con i modelli avanzati di Google per arricchire la tua avventura. Chiedi al concierge raccomandazioni aggiornate via Google Search, crea cartoline personalizzate e ascolta le audioguide generate all'istante.
+                    </p>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <div class="flex flex-wrap border-b border-slate-800 gap-1">
+                    <button onclick="switchAITab('chat')" id="tab-btn-chat" class="px-5 py-3 text-sm font-semibold border-b-2 border-violet-500 text-violet-400 transition-all flex items-center gap-2">
+                        <i class="fas fa-comments"></i> 1. Concierge AI Live
+                    </button>
+                    <button onclick="switchAITab('postcard')" id="tab-btn-postcard" class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-2">
+                        <i class="fas fa-image"></i> 2. Crea Cartolina AI
+                    </button>
+                    <button onclick="switchAITab('audioguide')" id="tab-btn-audioguide" class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-2">
+                        <i class="fas fa-volume-up"></i> 3. Audioguida Vocale
+                    </button>
+                </div>
+
+                <!-- Tab 1: AI Chat (Grounded with Search) -->
+                <div id="ai-tab-chat" class="space-y-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2 space-y-3">
+                            <div class="bg-slate-950/80 rounded-xl p-4 border border-slate-800 h-80 overflow-y-auto custom-scroll flex flex-col gap-3" id="chat-messages">
+                                <div class="bg-slate-900 border border-slate-800 rounded-lg p-3 max-w-[85%] self-start">
+                                    <p class="text-xs font-bold text-violet-400 mb-1"><i class="fas fa-robot"></i> Concierge AI</p>
+                                    <p class="text-xs sm:text-sm text-slate-300">Olá! Chiedimi qualsiasi cosa sul viaggio da Lisbona a Porto. Posso cercare su Google in tempo reale i migliori hotel, ristoranti di pesce, meteo a Nazaré, eventi storici e molto altro.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                <input type="text" id="chat-input" placeholder="Es. Consigliami 3 hotel 4 stelle a Porto vicino al fiume..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500">
+                                <button onclick="sendChatMessage()" id="chat-send-btn" class="bg-violet-600 hover:bg-violet-500 text-white font-bold px-5 py-3 rounded-xl text-sm transition-all flex items-center gap-2">
+                                    <span>Invia</span> <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Chat Sidebar: Quick Questions & Grounded Metadata -->
+                        <div class="space-y-4">
+                            <div class="bg-slate-950/40 border border-slate-800/80 rounded-xl p-4">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Domande Veloci consigliate:</h4>
+                                <div class="flex flex-col gap-2">
+                                    <button onclick="setChatQuery('Che meteo c\'è oggi a Nazaré per vedere le onde?')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-2.5 rounded-lg border border-slate-800/50 transition-all text-slate-300 hover:text-white truncate">
+                                        <i class="fas fa-cloud-sun text-yellow-500 mr-2"></i> Meteo per surf a Nazaré oggi
+                                    </button>
+                                    <button onclick="setChatQuery('Migliori 3 ristoranti tipici a Porto Ribeira')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-2.5 rounded-lg border border-slate-800/50 transition-all text-slate-300 hover:text-white truncate">
+                                        <i class="fas fa-utensils text-rose-500 mr-2"></i> Dove mangiare ottimo pesce a Porto
+                                    </button>
+                                    <button onclick="setChatQuery('Orari e costi d\'ingresso Palácio da Pena Sintra')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-2.5 rounded-lg border border-slate-800/50 transition-all text-slate-300 hover:text-white truncate">
+                                        <i class="fas fa-ticket-alt text-teal-400 mr-2"></i> Info biglietti Palácio da Pena
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Citations box -->
+                            <div class="bg-slate-950/40 border border-slate-800/80 rounded-xl p-4 hidden" id="citations-panel">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-1.5">
+                                    <i class="fas fa-shield-alt"></i> Fonti Google Search verificatrici:
+                                </h4>
+                                <ul class="text-xs space-y-1.5 text-slate-400" id="citations-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: AI Postcard (Imagen 4.0 API) -->
+                <div id="ai-tab-postcard" class="space-y-4 hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-serif text-lg text-white font-bold">Crea la tua Cartolina Artistica</h3>
+                                <p class="text-xs text-slate-400 mt-1">Scegli una località o digita il tuo prompt creativo per dipingere o disegnare una cartolina unica tramite Imagen 4.0.</p>
+                            </div>
+                            
+                            <!-- Preset prompts -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="setPostcardPrompt('Retro vintage travel poster of Nazaré lighthouse with giant waves, cinematic lighting')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-3 rounded-xl border border-slate-800/80 text-slate-300">
+                                    <strong class="text-amber-400 block mb-0.5">Nazaré Poster</strong>
+                                    Faro & Onde giganti retrò
+                                </button>
+                                <button onclick="setPostcardPrompt('A detailed cozy watercolor painting of Sintra colorful castle Pena, mystical forest foggy atmosphere')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-3 rounded-xl border border-slate-800/80 text-slate-300">
+                                    <strong class="text-rose-400 block mb-0.5">Sintra Acquerello</strong>
+                                    Castello fiabesco nella nebbia
+                                </button>
+                                <button onclick="setPostcardPrompt('Oil painting of Dom Luís I bridge in Porto, sunset reflections on Douro river, classic impressionist style')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-3 rounded-xl border border-slate-800/80 text-slate-300">
+                                    <strong class="text-sky-400 block mb-0.5">Porto Tramonto</strong>
+                                    Ponte Douro impressionista
+                                </button>
+                                <button onclick="setPostcardPrompt('An elegant travel sketch of Obidos medieval village, white houses, blooming bougainvillea flowers')" class="text-left text-xs bg-slate-900 hover:bg-slate-850 p-3 rounded-xl border border-slate-800/80 text-slate-300">
+                                    <strong class="text-emerald-400 block mb-0.5">Óbidos Schizzo</strong>
+                                    Borgo medievale fiorito
+                                </button>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs text-slate-400 font-bold block">Prompt personalizzato:</label>
+                                <textarea id="postcard-prompt" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500" placeholder="Es. A beautiful digital sketch of Porto's colourful waterfront..."></textarea>
+                            </div>
+
+                            <button onclick="generateAIPostcard()" id="postcard-btn" class="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                                <i class="fas fa-paint-brush"></i> Dipingi Cartolina AI
+                            </button>
+                        </div>
+
+                        <!-- Generated image result -->
+                        <div class="bg-slate-950 border border-slate-850 rounded-2xl p-4 flex flex-col items-center justify-center min-h-[300px] relative overflow-hidden">
+                            <div id="postcard-loading" class="absolute inset-0 bg-slate-950/80 z-20 flex flex-col items-center justify-center gap-3 hidden">
+                                <div class="w-10 h-10 border-4 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                                <span class="text-xs text-slate-400">Gemini sta dipingendo il capolavoro...</span>
+                            </div>
+
+                            <!-- Placeholder -->
+                            <div class="text-center p-6 space-y-3" id="postcard-placeholder">
+                                <div class="text-5xl text-slate-700"><i class="fas fa-palette"></i></div>
+                                <h4 class="text-sm font-bold text-slate-400">Nessuna Cartolina Generata</h4>
+                                <p class="text-xs text-slate-500 max-w-xs">Scegli un preset o scrivi la tua idea a sinistra e clicca su "Dipingi" per dar vita all'immagine.</p>
+                            </div>
+
+                            <!-- Canvas result -->
+                            <img id="postcard-result-img" class="max-w-full max-h-[280px] rounded-xl object-contain shadow-2xl hidden" alt="AI Generated Postcard">
+                            <a id="postcard-download-link" href="#" class="mt-4 bg-slate-900 border border-slate-800 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all hidden">
+                                <i class="fas fa-download"></i> Scarica Cartolina
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: AI Vocal Guide (TTS API) -->
+                <div id="ai-tab-audioguide" class="space-y-4 hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-serif text-lg text-white font-bold">Audioguida AI d'Élite</h3>
+                                <p class="text-xs text-slate-400 mt-1">Seleziona una delle storie memorabili di questa bellissima rotta oceanica. Il modello Gemini TTS narrerà con tono espressivo ed elegante la storia che preferisci.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <!-- Guide Option 1 -->
+                                <button onclick="selectVocalStory('sintra')" id="guide-story-sintra" class="w-full text-left bg-slate-900 border border-violet-500/20 hover:border-violet-500/40 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                                    <div class="w-10 h-10 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center group-hover:bg-rose-500/20 shrink-0">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-sm text-white">Il romanticismo incantato di Sintra</h4>
+                                        <p class="text-[11px] text-slate-500">Durata: ~45 secondi di curiosità storiche sul Palácio da Pena.</p>
+                                    </div>
+                                </button>
+                                <!-- Guide Option 2 -->
+                                <button onclick="selectVocalStory('nazare')" id="guide-story-nazare" class="w-full text-left bg-slate-900 border border-slate-800 hover:border-violet-500/40 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                                    <div class="w-10 h-10 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover:bg-amber-500/20 shrink-0">
+                                        <i class="fas fa-water"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-sm text-white">Il faro e il mostruoso canyon di Nazaré</h4>
+                                        <p class="text-[11px] text-slate-500">Durata: ~50 secondi sull'origine geologica delle onde giganti.</p>
+                                    </div>
+                                </button>
+                                <!-- Guide Option 3 -->
+                                <button onclick="selectVocalStory('porto')" id="guide-story-porto" class="w-full text-left bg-slate-900 border border-slate-800 hover:border-violet-500/40 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                                    <div class="w-10 h-10 rounded-full bg-sky-500/10 text-sky-400 flex items-center justify-center group-hover:bg-sky-500/20 shrink-0">
+                                        <i class="fas fa-wine-glass-alt"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-sm text-white">La Ribeira di Porto e la nascita del vino</h4>
+                                        <p class="text-[11px] text-slate-500">Durata: ~40 secondi di storia sul commercio lungo il fiume Douro.</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Player panel -->
+                        <div class="bg-slate-950 border border-slate-850 rounded-2xl p-6 flex flex-col items-center justify-center min-h-[260px] text-center space-y-4 relative">
+                            <div id="tts-loading" class="absolute inset-0 bg-slate-950/80 z-20 flex flex-col items-center justify-center gap-3 hidden">
+                                <div class="w-8 h-8 border-3 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                                <span class="text-xs text-slate-400">Gemini sta parlando... Generazione Audio in corso</span>
+                            </div>
+
+                            <div class="w-16 h-16 rounded-full bg-violet-600/10 text-violet-400 flex items-center justify-center text-2xl animate-pulse">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-white text-base" id="audio-guide-title">Seleziona una Storia</h4>
+                                <p class="text-xs text-slate-400 max-w-xs" id="audio-guide-desc">Scegli uno dei segreti a sinistra per far parlare il tuo assistente AI.</p>
+                            </div>
+
+                            <div class="w-full max-w-xs pt-4 border-t border-slate-900 flex justify-center">
+                                <audio id="tts-audio-player" class="w-full hidden" controls></audio>
+                                <button onclick="triggerVoiceSpeak()" id="voice-play-btn" class="bg-violet-600 hover:bg-violet-500 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition-all flex items-center gap-2">
+                                    <i class="fas fa-play"></i> Ascolta Narratore AI
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sincronizzazione Itinerari Multi-tappa -->
+        <section id="itinerari-gps" class="bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950 border border-indigo-900/40 rounded-3xl p-6 sm:p-8">
+            <div class="space-y-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <i class="fas fa-check-circle"></i> Sincronizzazione GPS in 1-Click
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white">Rotte Pronte da Caricare sul tuo Smartphone</h2>
+                <p class="text-slate-400 text-sm max-w-3xl leading-relaxed">
+                    Scegli una delle due configurazioni di viaggio studiate per ottimizzare i chilometri ed evitare perdite di tempo nell'inserimento manuale delle tappe. Cliccando sui pulsanti aprirai l'itinerario multi-tappa ufficiale direttamente all'interno dell'app Google Maps sul tuo telefono.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <!-- Itinerario 1 -->
+                <div class="bg-slate-950 border border-slate-800/80 rounded-2xl p-6 hover:border-rose-500/30 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2.5 py-1 rounded-lg text-xs font-bold">Rotta Classica Imperdibile</span>
+                            <span class="text-xs text-slate-500 font-semibold"><i class="fas fa-clock"></i> ~ 4 ore di guida</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">1. Da Lisbona a Porto (Via Costa d'Argento)</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Il percorso definitivo per chi desidera ammirare le falesie più imponenti, i borghi storici fortificati e il maestoso Faro di Nazaré con la sua famosa spiaggia delle onde giganti, arrivando infine a Porto.
+                        </p>
+                        <div class="bg-slate-900 rounded-lg p-3 border border-slate-800 text-xs text-slate-400 space-y-1">
+                            <div><strong class="text-slate-300">Tappe:</strong> Lisbona → Sintra → Óbidos → Nazaré → Costa Nova (Aveiro) → Porto</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-900 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">Pronto per Google Maps</span>
+                        <a href="https://www.google.com/maps/dir/Lisbona,+Portogallo/Sintra,+Portogallo/%C3%93bidos,+Portogallo/Nazar%C3%A9,+Portogallo/Costa+Nova,+Portogallo/Porto,+Portogallo" target="_blank" onclick="showToast('Itinerario Lisbona-Porto')" class="bg-rose-600 hover:bg-rose-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-md">
+                            Apri su Maps <i class="fas fa-chevron-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Itinerario 2 -->
+                <div class="bg-slate-950 border border-slate-800/80 rounded-2xl p-6 hover:border-purple-500/30 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-1 rounded-lg text-xs font-bold">Rotta Estesa "Ancora del Nord"</span>
+                            <span class="text-xs text-slate-500 font-semibold"><i class="fas fa-clock"></i> ~ 5h 30m di guida</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">2. Grand Tour Atlantico (Fino alla Spiaggia delle Ancore)</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            La versione completa che estende la rotta classica da Porto fino a Vila Praia de Âncora, la famosissima località balneare caratterizzata da spiagge sconfinate e da un forte militare del XVII secolo a difesa della costa.
+                        </p>
+                        <div class="bg-slate-900 rounded-lg p-3 border border-slate-800 text-xs text-slate-400 space-y-1">
+                            <div><strong class="text-slate-300">Tappe:</strong> Lisbona → Cabo da Roca → Óbidos → Nazaré (Faro) → Porto → Vila Praia de Âncora</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-900 flex items-center justify-between">
+                        <span class="text-xs text-slate-500">Pronto per Google Maps</span>
+                        <a href="https://www.google.com/maps/dir/Lisbona,+Portogallo/Cabo+da+Roca,+Portogallo/%C3%93bidos,+Portogallo/Nazar%C3%A9,+Portogallo/Porto,+Portogallo/Vila+Praia+de+%C3%82ncora,+Portogallo" target="_blank" onclick="showToast('Grand Tour Atlantico')" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-md">
+                            Apri su Maps <i class="fas fa-chevron-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Le Tappe Imperdibili (Must See in Ordine Geografico) -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-star text-rose-500"></i> Le Soste d'Élite: Da Lisbona a Porto
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-1">Ordinate geograficamente per direzione Nord. Soste ottimizzate per l'itinerario in auto.</p>
+                </div>
+                <!-- Filtri di visualizzazione -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterStops('all')" id="btn-filter-all" class="bg-rose-600 text-white font-semibold px-3.5 py-1.5 rounded-lg text-xs transition-all">Tutti</button>
+                    <button onclick="filterStops('must')" id="btn-filter-must" class="bg-slate-900 text-slate-400 font-semibold px-3.5 py-1.5 rounded-lg text-xs transition-all border border-slate-800">Assolutamente Vedere</button>
+                    <button onclick="filterStops('beach')" id="btn-filter-beach" class="bg-slate-900 text-slate-400 font-semibold px-3.5 py-1.5 rounded-lg text-xs transition-all border border-slate-800">Spiagge da Favola</button>
+                    <button onclick="filterStops('view')" id="btn-filter-view" class="bg-slate-900 text-slate-400 font-semibold px-3.5 py-1.5 rounded-lg text-xs transition-all border border-slate-800">Punti Panoramici</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- TAPPA: LISBONA (PARTENZA) -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between" data-category="must">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-rose-950/40 text-rose-400 text-xs font-bold rounded-lg border border-rose-900/40">PARTENZA</span>
+                            <span class="text-rose-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-exclamation-circle"></i> Imperdibile</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Belém & Alfama (Lisbona)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Prima di metterti in viaggio, visita la splendida Torre de Belém e il Mosteiro dos Jerónimos. Ammira il tramonto dai miradouros dell'Alfama prima di ritirare l'auto a noleggio per partire.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-history"></i> Visita: 1 giorno</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Torre+de+Belem+Lisbon" target="_blank" onclick="showToast('Torre de Belém (Lisbona)')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: SINTRA -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between" data-category="must">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs font-bold rounded-lg border border-slate-800">Km 30</span>
+                            <span class="text-rose-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-crown"></i> Cultura</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Palácio Nacional da Pena</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Un castello incantato e coloratissimo arroccato sui boschi nebulosi di Sintra. L'architettura romantica e i dettagli esotici lo rendono uno dei monumenti più fotografati al mondo. Prenota i biglietti in anticipo!
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-clock"></i> Sosta: 3 ore</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Palacio+Nacional+da+Pena+Sintra" target="_blank" onclick="showToast('Palácio da Pena')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: CABO DA ROCA -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between" data-category="view">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs font-bold rounded-lg border border-slate-800">Km 42</span>
+                            <span class="text-sky-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-mountain"></i> Vista Unica</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Cabo da Roca (Faro)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            "Dove la terra finisce e comincia il mare". Il punto più occidentale dell'Europa continentale. Caratterizzato da falesie a picco sull'oceano alte più di 140 metri e un faro storico del XVIII secolo ad altissimo impatto visivo.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-clock"></i> Sosta: 45 min</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Farol+do+Cabo+da+Roca" target="_blank" onclick="showToast('Cabo da Roca')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: OBIDOS -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between" data-category="must">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs font-bold rounded-lg border border-slate-800">Km 100</span>
+                            <span class="text-rose-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-chess-castle"></i> Fortezza</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Óbidos: Borgo Medievale</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Un borgo fortificato racchiuso entro mura merlate intatte. Cammina lungo le mura, passeggia tra i vicoli decorati da gelsomini e buganvillee e degusta la Ginjinha (il liquore alle amarene locale) servito in bicchierini di cioccolato.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-clock"></i> Sosta: 1.5 ore</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Castelo+de+Obidos" target="_blank" onclick="showToast('Óbidos')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: NAZARE (PASSAGGIO OBBLIGATO) -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-rose-500 transition-all flex flex-col justify-between ring-2 ring-amber-500/40" data-category="must">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-amber-950/40 text-amber-400 text-xs font-bold rounded-lg border border-amber-900/40">Km 120</span>
+                            <span class="text-amber-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-star"></i> Sosta Obbligatoria</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Farol de Nazaré (Forte)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <strong class="text-white">Il punto forte del viaggio!</strong> Dal promontorio del Sítio e dal faro del Forte de São Miguel Arcanjo si ammirano le onde giganti più alte del mondo, generate dallo spettacolare canyon sottomarino.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-water"></i> Sosta: 2 ore</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Forte+de+Sao+Miguel+Arcanjo+Nazare" target="_blank" onclick="showToast('Forte di Nazaré')" class="bg-rose-600 hover:bg-rose-500 text-white font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: COSTA NOVA -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between" data-category="beach">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs font-bold rounded-lg border border-slate-800">Km 245</span>
+                            <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-image"></i> Fotogenica</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Spiaggia di Costa Nova</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Famosissima per i "Palheiros", le spettacolari e coloratissime casette in legno a strisce verticali un tempo utilizzate dai pescatori. La spiaggia adiacente è splendida, delimitata da dune di sabbia naturale.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-camera"></i> Foto: 1 ora</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Costa+Nova+Ilhavo+Portugal" target="_blank" onclick="showToast('Costa Nova')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: PORTO (ARRIVO) -->
+                <div class="stop-card bg-slate-900 border border-slate-800/80 rounded-2xl p-5 hover:border-slate-700 transition-all flex flex-col justify-between" data-category="must">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-rose-950/40 text-rose-400 text-xs font-bold rounded-lg border border-rose-900/40">Km 315</span>
+                            <span class="text-rose-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-trophy"></i> Traguardo</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Ribeira & Ponte Dom Luís I</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            L'arrivo ufficiale della rotta classica. Cammina per il quartiere storico lungo il fiume Douro, degusta il rinomato vino Porto nelle cantine storiche di Vila Nova de Gaia e attraversa il ponte in ferro di scuola Eiffel.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-bed"></i> Sosta: 1-2 giorni</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Cais+da+Ribeira+Porto" target="_blank" onclick="showToast('Ribeira (Porto)')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAPPA: ANCORA BEACH (ESTENSIONE) -->
+                <div class="stop-card bg-slate-900 border border-slate-850 rounded-2xl p-5 hover:border-purple-500/40 transition-all flex flex-col justify-between" data-category="beach">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 bg-purple-950/40 text-purple-400 text-xs font-bold rounded-lg border border-purple-900/40">Estensione Nord</span>
+                            <span class="text-purple-400 text-xs font-bold flex items-center gap-1"><i class="fas fa-anchor"></i> Spiaggia delle Ancore</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-serif mb-2">Vila Praia de Âncora</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            La splendida località balneare situata nell'estremo nord, famosa per le sue sconfinate spiagge sabbiose e il maestoso Forte do Cão. Perfetta per chiudere l'itinerario a ridosso del confine galiziano.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fas fa-road"></i> Da Porto: ~ 50 min</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Vila+Praia+de+Ancora+Portugal" target="_blank" onclick="showToast('Vila Praia de Âncora')" class="bg-purple-600 hover:bg-purple-500 text-white font-semibold px-4 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all">
+                            <i class="fas fa-map-pin"></i> Apri su Maps
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Focus Approfondito sulle Tappe Richieste -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Focus Faro di Nazaré -->
+            <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 to-rose-950/25 border border-rose-900/40 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute -right-16 -bottom-16 opacity-5 text-rose-500">
+                    <i class="fas fa-broadcast-tower text-[200px]"></i>
+                </div>
+                <div class="relative z-10">
+                    <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/15 text-rose-400 border border-rose-500/25 mb-4">
+                        <i class="fas fa-water"></i> Passaggio Obbligatorio
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                        La Meraviglia del Faro di Nazaré
+                    </h2>
+                    <p class="text-slate-300 mt-4 leading-relaxed text-sm sm:text-base">
+                        Il <strong class="text-white">Faro di Nazaré</strong>, situato all'interno dello storico *Forte de São Miguel Arcanjo*, sorge su una scogliera mozzafiato che domina l'Atlantico. Al largo si estende la famosissima fossa oceanica di Nazaré, profonda oltre 5.000 metri. L'energia convogliata in questo canyon crea onde leggendarie che superano i 30 metri di altezza. All'interno del forte è possibile ammirare un museo interattivo sul surf d'onda gigante.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-850">
+                            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider block mb-1">Cosa non Perdere</span>
+                            <p class="text-xs text-slate-400">Il punto panoramico "Miradouro do Suberco", da cui si domina l'intera spiaggia urbana e le tipiche venditrici di pesce essiccato.</p>
+                        </div>
+                        <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-850">
+                            <span class="text-xs font-bold text-rose-400 uppercase tracking-wider block mb-1">Pausa Pranzo</span>
+                            <p class="text-xs text-slate-400">Degusta un fantastico "Arroz de Marisco" (riso ai frutti di mare) in uno dei piccoli locali tradizionali affacciati sulla spiaggia principale.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-slate-800 flex flex-wrap gap-3 items-center justify-between">
+                    <div class="flex items-center gap-4 text-slate-400 text-xs">
+                        <span><i class="fas fa-ticket-alt text-amber-500 mr-1"></i> Biglietto Forte: €2</span>
+                        <span><i class="fas fa-eye text-sky-400 mr-1"></i> Vista Oceano a 360°</span>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Forte+de+Sao+Miguel+Arcanjo+Nazare" target="_blank" onclick="showToast('Forte di Nazaré')" class="bg-rose-600 hover:bg-rose-500 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-md flex items-center gap-1.5">
+                        <i class="fas fa-map-marked-alt"></i> Mappa del Faro
+                    </a>
+                </div>
+            </div>
+
+            <!-- Focus Spiaggia delle Ancore -->
+            <div class="bg-slate-900 border border-slate-800/80 rounded-3xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-anchor text-purple-400"></i> Le Due "Ancore" del Portogallo
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-4">Nota importante per una navigazione precisa.</p>
+                    
+                    <div class="space-y-4 text-xs text-slate-400 leading-relaxed">
+                        <p>
+                            Per il tuo itinerario hai richiesto la <strong class="text-white">Spiaggia delle Ancore</strong>. Per darti la massima accuratezza geografica, ecco i due riferimenti iconici del Portogallo:
+                        </p>
+                        <div class="border-b border-slate-800/60 pb-3">
+                            <h4 class="font-bold text-slate-300 text-sm mb-1"><i class="fas fa-arrow-down text-rose-500 mr-1"></i> A Sud (Algarve):</h4>
+                            <strong class="text-rose-400">Praia do Barril (Tavira)</strong>, famosa per il suggestivo "Cimitero delle Ancore" inserito nelle dune di sabbia bianca.
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-300 text-sm mb-1"><i class="fas fa-arrow-up text-purple-500 mr-1"></i> A Nord (Oltre Porto):</h4>
+                            <strong class="text-purple-400">Vila Praia de Âncora</strong> (Spiaggia dell'Ancora), splendida località costiera e di villeggiatura poco a nord di Porto, integrata perfettamente alla fine di questa rotta.
+                        </div>
+                        <p class="italic text-slate-500 pt-2 border-t border-slate-800/60">
+                            Abbiamo progettato e reso scaricabile l'itinerario con Vila Praia de Âncora come gran finale a Nord di Porto!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-slate-800 flex gap-2">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Vila+Praia+de+Ancora+Portugal" target="_blank" class="flex-1 text-center bg-slate-950 hover:bg-slate-850 text-purple-400 py-2.5 rounded-lg text-[10px] font-bold transition-all border border-slate-800">
+                        Vedi Âncora (Nord)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Interattive del Road Trip -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Calcolatore del Budget Stradale -->
+            <div class="bg-slate-900 border border-slate-800/80 rounded-2xl p-6">
+                <h3 class="font-serif text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-calculator text-rose-500"></i> Stimatore Spese Stradali 2026
+                </h3>
+                <p class="text-xs text-slate-400 mb-4">Seleziona le opzioni per una stima delle spese stradali (Pedaggi autostradali A1/A8 e benzina standard).</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs text-slate-400 block mb-1">Tipologia Auto:</label>
+                        <select id="calc-car" onchange="calculateCost()" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-rose-500">
+                            <option value="economy">Compatta / Utilitaria (Consumi bassi)</option>
+                            <option value="sedan">Berlina / SUV Medio</option>
+                            <option value="premium">Auto Premium / 4x4</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-400 block mb-1">Giorni di Noleggio:</label>
+                        <input id="calc-days" type="number" value="3" min="1" oninput="calculateCost()" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:ring-1 focus:ring-rose-500">
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-850 text-xs space-y-2">
+                        <div class="flex justify-between text-slate-400">
+                            <span>Pedaggi A8/A1 stimati:</span>
+                            <span id="cost-tolls">~ €25.00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>Carburante stimato (395 km):</span>
+                            <span id="cost-fuel">~ €45.00</span>
+                        </div>
+                        <div class="flex justify-between text-white font-bold pt-2 border-t border-slate-800/60">
+                            <span>Totale approssimativo:</span>
+                            <span id="cost-total" class="text-rose-400">€70.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checklist Prima di Partire -->
+            <div class="bg-slate-900 border border-slate-800/80 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-tasks text-rose-500"></i> Checklist per la Partenza in Auto
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4">Spunta le voci necessarie prima di ritirare l'auto e metterti in strada in Portogallo.</p>
+                    
+                    <div class="space-y-2.5 text-xs text-slate-300">
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" checked class="rounded border-slate-800 text-rose-600 focus:ring-rose-500 bg-slate-950">
+                            <span>Dispositivo <strong>Via Verde</strong> (per pagare i pedaggi elettronici A8/A22)</span>
+                        </label>
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" class="rounded border-slate-800 text-rose-600 focus:ring-rose-500 bg-slate-950">
+                            <span>Mappe Offline di Google Maps scaricate sul telefono</span>
+                        </label>
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" class="rounded border-slate-800 text-rose-600 focus:ring-rose-500 bg-slate-950">
+                            <span>Biglietti per il <strong>Palácio da Pena</strong> acquistati online</span>
+                        </label>
+                        <label class="flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" class="rounded border-slate-800 text-rose-600 focus:ring-rose-500 bg-slate-950">
+                            <span>Ginocchiere/Scarpe comode per camminare sulla pavimentazione di Porto</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-3 rounded-lg border border-slate-850 text-[10px] text-slate-500 italic mt-4">
+                    Nota: La maggior parte delle autostrade nei pressi di Porto e Nazaré utilizza pedaggi completamente elettronici (Ex-SCUT) senza barriera fisica. Il dispositivo di pagamento elettronico a noleggio è fortemente raccomandato.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 border border-slate-800 text-slate-100 px-5 py-4 rounded-xl shadow-2xl opacity-0 transform translate-y-2 pointer-events-none transition-all duration-300 z-50 flex items-center gap-3">
+        <div class="bg-rose-500/20 text-rose-400 p-2 rounded-lg">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div>
+            <p class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Apertura in corso</p>
+            <p id="toast-text" class="text-sm font-bold text-white"></p>
+        </div>
+    </div>
+
+    <footer class="text-center p-12 text-slate-600 text-xs border-t border-slate-900 bg-slate-950/50 mt-16">
+        © 2026 Guida Road Trip Portogallo - Dati aggiornati e integrati con l'Intelligenza Artificiale Gemini. <br>
+        Tutte le soste consigliate rispettano i migliori standard di accoglienza e panorami. Buon viaggio!
+    </footer>
+
+    <script>
+        // Tab switching logic for AI Cognitive Hub
+        function switchAITab(tabId) {
+            const tabs = ['chat', 'postcard', 'audioguide'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const panel = document.getElementById(`ai-tab-${t}`);
+                if (t === tabId) {
+                    btn.className = "px-5 py-3 text-sm font-semibold border-b-2 border-violet-500 text-violet-400 transition-all flex items-center gap-2";
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = "px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-2";
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        // Quick query injection for Chat
+        function setChatQuery(query) {
+            document.getElementById('chat-input').value = query;
+            sendChatMessage();
+        }
+
+        // Quick prompt injection for Postcard Creator
+        function setPostcardPrompt(promptText) {
+            document.getElementById('postcard-prompt').value = promptText;
+        }
+
+        // Audio Stories Data
+        const stories = {
+            sintra: {
+                title: "Il Romanticismo di Sintra",
+                desc: "Esplora i misteri del magnifico Palácio da Pena, il capolavoro romantico immerso nella nebbia boscosa.",
+                text: "Sintra è un luogo intriso di misticismo romantico. Il Palazzo della Pena sorge maestoso sulle rocce della serra, commissionato dal re artista Ferdinando Secondo. Le sue pareti colorate di giallo e rosso rappresentano l'unione eclettica dello stile neogotico, neomanuelino e arabo, creando l'illusione di una fiaba incantata racchiusa nella foresta nebulosa portoghese."
+            },
+            nazare: {
+                title: "Il Canyon Gigante di Nazaré",
+                desc: "Scopri come si formano le onde più colossali della Terra grazie al canyon sottomarino davanti al Faro.",
+                text: "Il segreto di Nazaré risiede sotto l'oceano. Una gigantesca gola sottomarina, profonda oltre cinquemila metri, convoglia e amplifica l'energia delle tempeste atlantiche. Quando queste enormi masse d'acqua incontrano la scogliera del Faro del Forte di San Michele, vengono spinte verso l'alto, dando vita a onde leggendarie che superano i trenta metri d'altezza."
+            },
+            porto: {
+                title: "La Ribeira e l'Oro di Porto",
+                desc: "Ascolta le antiche tradizioni legate alle rabelos, le storiche imbarcazioni che trasportavano il vino Porto.",
+                text: "La Ribeira di Porto è il cuore pulsante della storia mercantile del nord. Da qui, le tipiche barche rabelos solcavano il fiume Douro per trasportare le botti di vino dalle vigne della valle fino alle fresche cantine di Vila Nova de Gaia. Un connubio perfetto di architettura Eiffel e tradizioni centenarie che potrete gustare ad ogni calice."
+            }
+        };
+
+        let currentSelectedStory = 'sintra';
+
+        function selectVocalStory(slug) {
+            currentSelectedStory = slug;
+            const data = stories[slug];
+            
+            // Highlight button
+            ['sintra', 'nazare', 'porto'].forEach(s => {
+                const btn = document.getElementById(`guide-story-${s}`);
+                if (s === slug) {
+                    btn.classList.add('border-violet-500');
+                    btn.classList.remove('border-slate-800');
+                } else {
+                    btn.classList.remove('border-violet-500');
+                    btn.classList.add('border-slate-800');
+                }
+            });
+
+            document.getElementById('audio-guide-title').textContent = data.title;
+            document.getElementById('audio-guide-desc').textContent = data.desc;
+        }
+
+        // API Callers
+        async function sendChatMessage() {
+            const inputEl = document.getElementById('chat-input');
+            const query = inputEl.value.trim();
+            if (!query) return;
+
+            // Clear input and block send button
+            inputEl.value = '';
+            const sendBtn = document.getElementById('chat-send-btn');
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i>`;
+
+            const messageBox = document.getElementById('chat-messages');
+
+            // Render User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = "bg-violet-600 text-white rounded-lg p-3 max-w-[85%] self-end shadow-md";
+            userMsg.innerHTML = `<p class="text-xs font-bold text-violet-200 mb-1"><i class="fas fa-user"></i> Tu</p><p class="text-xs sm:text-sm">${escapeHTML(query)}</p>`;
+            messageBox.appendChild(userMsg);
+            messageBox.scrollTop = messageBox.scrollHeight;
+
+            // Render Loader Message
+            const aiLoaderMsg = document.createElement('div');
+            aiLoaderMsg.className = "bg-slate-900 border border-slate-800 rounded-lg p-3 max-w-[85%] self-start";
+            aiLoaderMsg.id = "ai-chat-loader-temp";
+            aiLoaderMsg.innerHTML = `<p class="text-xs font-bold text-violet-400 mb-1"><i class="fas fa-robot"></i> Concierge AI</p><p class="text-xs text-slate-500 flex items-center gap-1.5"><i class="fas fa-circle-notch animate-spin text-violet-500"></i> Sto consultando le guide live di Google Search...</p>`;
+            messageBox.appendChild(aiLoaderMsg);
+            messageBox.scrollTop = messageBox.scrollHeight;
+
+            try {
+                // Call Gemini API with Grounding
+                const apiKey = ""; // Canvas handles empty keys dynamically
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                
+                const systemPrompt = "Sei un concierge esperto di viaggi in Portogallo. Rispondi in italiano con un tono amichevole e raffinato, fornendo consigli accurati basati sull'itinerario da Lisbona a Porto. Fornisci elenchi chiari e dettagliati.";
+                const payload = {
+                    contents: [{ parts: [{ text: query }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    }
+                };
+
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                
+                // Remove loader
+                const loader = document.getElementById('ai-chat-loader-temp');
+                if (loader) loader.remove();
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const text = candidate.content.parts[0].text;
+                    
+                    // Render AI message
+                    const aiMsg = document.createElement('div');
+                    aiMsg.className = "bg-slate-900 border border-slate-800 rounded-lg p-3 max-w-[85%] self-start shadow-md";
+                    aiMsg.innerHTML = `<p class="text-xs font-bold text-violet-400 mb-1"><i class="fas fa-robot"></i> Concierge AI</p><div class="text-xs sm:text-sm text-slate-300 leading-relaxed">${formatMarkdown(text)}</div>`;
+                    messageBox.appendChild(aiMsg);
+
+                    // Extract search sources
+                    let sources = [];
+                    const groundingMetadata = candidate.groundingMetadata;
+                    if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                        sources = groundingMetadata.groundingAttributions
+                            .map(attribution => ({
+                                uri: attribution.web?.uri,
+                                title: attribution.web?.title,
+                            }))
+                            .filter(source => source.uri && source.title);
+                    }
+
+                    // Display sources if found
+                    const citationsPanel = document.getElementById('citations-panel');
+                    const citationsList = document.getElementById('citations-list');
+                    if (sources.length > 0) {
+                        citationsPanel.classList.remove('hidden');
+                        citationsList.innerHTML = sources.slice(0, 4).map(src => `
+                            <li class="truncate">
+                                <a href="${src.uri}" target="_blank" class="text-violet-400 hover:text-violet-300 hover:underline">
+                                    <i class="fas fa-external-link-alt mr-1"></i> ${escapeHTML(src.title)}
+                                </a>
+                            </li>
+                        `).join('');
+                    } else {
+                        citationsPanel.classList.add('hidden');
+                    }
+
+                } else {
+                    throw new Error("Formato di risposta imprevisto da parte di Gemini.");
+                }
+
+            } catch(e) {
+                console.error(e);
+                const loader = document.getElementById('ai-chat-loader-temp');
+                if (loader) loader.remove();
+                
+                // Show clean error message block
+                const errBlock = document.createElement('div');
+                errBlock.className = "bg-red-950/40 border border-red-900 rounded-lg p-3 max-w-[85%] self-start";
+                errBlock.innerHTML = `<p class="text-xs font-bold text-red-400 mb-1"><i class="fas fa-exclamation-circle"></i> Errore di Connessione</p><p class="text-xs text-slate-400">Impossibile contattare l'intelligenza artificiale. Verifica la connessione e riprova più tardi.</p>`;
+                messageBox.appendChild(errBlock);
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = `<span>Invia</span> <i class="fas fa-paper-plane"></i>`;
+                messageBox.scrollTop = messageBox.scrollHeight;
+            }
+        }
+
+        // API Call for Imagen Postcard
+        async function generateAIPostcard() {
+            const prompt = document.getElementById('postcard-prompt').value.trim();
+            if (!prompt) return;
+
+            const loader = document.getElementById('postcard-loading');
+            const placeholder = document.getElementById('postcard-placeholder');
+            const resultImg = document.getElementById('postcard-result-img');
+            const downloadBtn = document.getElementById('postcard-download-link');
+            const genBtn = document.getElementById('postcard-btn');
+
+            loader.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+            resultImg.classList.add('hidden');
+            downloadBtn.classList.add('hidden');
+            genBtn.disabled = true;
+
+            try {
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
+
+                const payload = {
+                    instances: [{ prompt: prompt }],
+                    parameters: { "sampleCount": 1 }
+                };
+
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
+                    const base64Data = result.predictions[0].bytesBase64Encoded;
+                    const imageUrl = `data:image/png;base64,${base64Data}`;
+                    
+                    resultImg.src = imageUrl;
+                    resultImg.classList.remove('hidden');
+                    
+                    // Setup download
+                    downloadBtn.href = imageUrl;
+                    downloadBtn.download = `cartolina_portogallo_${Date.now()}.png`;
+                    downloadBtn.classList.remove('hidden');
+                } else {
+                    throw new Error("Nessuna immagine restituita.");
+                }
+
+            } catch (e) {
+                console.error(e);
+                placeholder.classList.remove('hidden');
+                placeholder.querySelector('h4').textContent = "Generazione Fallita";
+                placeholder.querySelector('p').textContent = "Impossibile completare il disegno. Riprova tra pochi istanti.";
+            } finally {
+                loader.classList.add('hidden');
+                genBtn.disabled = false;
+            }
+        }
+
+        // API Call for TTS Voice Guide
+        async function triggerVoiceSpeak() {
+            const story = stories[currentSelectedStory];
+            if (!story) return;
+
+            const loader = document.getElementById('tts-loading');
+            const speakBtn = document.getElementById('voice-play-btn');
+            const audioPlayer = document.getElementById('tts-audio-player');
+
+            loader.classList.remove('hidden');
+            speakBtn.disabled = true;
+            audioPlayer.classList.add('hidden');
+
+            try {
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{
+                        parts: [{ text: `Leggi con tono calmo, accogliente, espressivo ed entusiasta in lingua italiana: ${story.text}` }]
+                    }],
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: { voiceName: "Puck" } // Upbeat conversational voice
+                            }
+                        }
+                    }
+                };
+
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    // Extract Sample Rate
+                    const match = mimeType.match(/rate=(\d+)/);
+                    const sampleRate = match ? parseInt(match[1], 10) : 24000;
+                    
+                    // Convert raw PCM to a WAV blob
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmData);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+
+                    audioPlayer.src = audioUrl;
+                    audioPlayer.classList.remove('hidden');
+                    audioPlayer.play();
+                } else {
+                    throw new Error("Nessuna traccia audio PCM restituita.");
+                }
+
+            } catch (e) {
+                console.error(e);
+                showToast("Errore di sintesi vocale. Riprova più tardi.");
+            } finally {
+                loader.classList.add('hidden');
+                speakBtn.disabled = false;
+            }
+        }
+
+        // HELPER: Base64 to ArrayBuffer decoder
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // HELPER: PCM-16 Bit to WAV container converter
+        function pcmToWav(pcm16, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcm16.length * 2);
+            const view = new DataView(buffer);
+
+            // RIFF identifier
+            writeString(view, 0, 'RIFF');
+            // File length
+            view.setUint32(4, 36 + pcm16.length * 2, true);
+            // RIFF type
+            writeString(view, 8, 'WAVE');
+            // Format chunk identifier
+            writeString(view, 12, 'fmt ');
+            // Format chunk length
+            view.setUint32(16, 16, true);
+            // Sample format (uncompressed linear PCM)
+            view.setUint16(20, 1, true);
+            // Channels (1 = Mono)
+            view.setUint16(22, 1, true);
+            // Sample rate
+            view.setUint32(24, sampleRate, true);
+            // Byte rate (sample rate * block align)
+            view.setUint32(28, sampleRate * 2, true);
+            // Block align
+            view.setUint16(32, 2, true);
+            // Bits per sample (16-bit PCM)
+            view.setUint16(34, 16, true);
+            // Data chunk identifier
+            writeString(view, 36, 'data');
+            // Chunk length
+            view.setUint32(40, pcm16.length * 2, true);
+
+            // Write actual PCM payload
+            let offset = 44;
+            for (let i = 0; i < pcm16.length; i++, offset += 2) {
+                view.setInt16(offset, pcm16[i], true);
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        // HELPER: Fetch with exponential backoff retry
+        async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (response.status === 429 && retries > 0) {
+                    console.debug(`Throttled! Retrying in ${delay}ms...`);
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                return response;
+            } catch (e) {
+                if (retries > 0) {
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                throw e;
+            }
+        }
+
+        // Smooth scrolling utilities
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Toggle path highlighted on visual map
+        function toggleRoute(type) {
+            const pathClassic = document.getElementById('path-classic');
+            const pathGrand = document.getElementById('path-grand-extension');
+            const btnClassic = document.getElementById('btn-classic');
+            const btnGrand = document.getElementById('btn-grand');
+
+            if (type === 'classic') {
+                pathClassic.style.stroke = '#f43f5e';
+                pathClassic.style.strokeWidth = '5';
+                pathGrand.style.opacity = '0.1';
+                
+                btnClassic.className = "flex-1 bg-rose-600 text-white py-2 rounded-lg text-xs font-bold transition-all shadow-md";
+                btnGrand.className = "flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 py-2 rounded-lg text-xs font-bold transition-all";
+                
+                filterStops('must');
+            } else {
+                pathClassic.style.stroke = '#f43f5e';
+                pathClassic.style.strokeWidth = '3';
+                pathGrand.style.opacity = '1';
+                pathGrand.style.strokeWidth = '4';
+
+                btnClassic.className = "flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 py-2 rounded-lg text-xs font-bold transition-all";
+                btnGrand.className = "flex-1 bg-purple-600 text-white py-2 rounded-lg text-xs font-bold transition-all shadow-md";
+                
+                filterStops('all');
+            }
+        }
+
+        // Focus and geolocalize
+        function focusStage(slug) {
+            let searchQuery = "";
+            let placeName = "";
+
+            switch(slug) {
+                case 'lisbona':
+                    placeName = "Lisbona (Torre di Belém)";
+                    searchQuery = "Torre+de+Belem+Lisbon";
+                    break;
+                case 'sintra':
+                    placeName = "Palácio da Pena (Sintra)";
+                    searchQuery = "Palacio+Nacional+da+Pena+Sintra";
+                    break;
+                case 'obidos':
+                    placeName = "Óbidos (Castello)";
+                    searchQuery = "Castelo+de+Obidos+Portugal";
+                    break;
+                case 'nazare':
+                    placeName = "Faro di Nazaré (Forte)";
+                    searchQuery = "Forte+de+Sao+Miguel+Arcanjo+Nazare";
+                    break;
+                case 'aveiro':
+                    placeName = "Costa Nova (Aveiro)";
+                    searchQuery = "Costa+Nova+Ilhavo+Portugal";
+                    break;
+                case 'porto':
+                    placeName = "Ribeira (Porto)";
+                    searchQuery = "Cais+da+Ribeira+Porto";
+                    break;
+                case 'ancora':
+                    placeName = "Vila Praia de Âncora";
+                    searchQuery = "Vila+Praia+de+Ancora+Portugal";
+                    break;
+            }
+
+            if(placeName) {
+                showToast(placeName);
+                setTimeout(() => {
+                    window.open(`https://www.google.com/maps/search/?api=1&query=${searchQuery}`, '_blank');
+                }, 400);
+            }
+        }
+
+        // Show Toast Notification
+        function showToast(name) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            
+            toastText.textContent = name;
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            toast.style.pointerEvents = 'auto';
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(8px)';
+                toast.style.pointerEvents = 'none';
+            }, 3000);
+        }
+
+        // Filter Stage Cards
+        function filterStops(category) {
+            const cards = document.querySelectorAll('.stop-card');
+            
+            const buttons = ['all', 'must', 'beach', 'view'];
+            buttons.forEach(btn => {
+                const b = document.getElementById(`btn-filter-${btn}`);
+                if (b) {
+                    if (btn === category) {
+                        b.className = "bg-rose-600 text-white font-semibold px-3.5 py-1.5 rounded-lg text-xs transition-all";
+                    } else {
+                        b.className = "bg-slate-900 text-slate-400 font-semibold px-3.5 py-1.5 rounded-lg text-xs transition-all border border-slate-800";
+                    }
+                }
+            });
+
+            cards.forEach(card => {
+                if(category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Budget Strade calculation
+        function calculateCost() {
+            const carType = document.getElementById('calc-car').value;
+            const days = parseInt(document.getElementById('calc-days').value) || 1;
+            
+            let fuelPriceFactor = 1.0;
+            if(carType === 'sedan') fuelPriceFactor = 1.35;
+            if(carType === 'premium') fuelPriceFactor = 1.7;
+
+            const tolls = 25.00; // Fixed estimate for A1/A8 routes
+            const fuel = 45.00 * fuelPriceFactor;
+            const total = tolls + fuel;
+
+            document.getElementById('cost-tolls').textContent = `~ €${tolls.toFixed(2)}`;
+            document.getElementById('cost-fuel').textContent = `~ €${fuel.toFixed(2)}`;
+            document.getElementById('cost-total').textContent = `€${total.toFixed(2)}`;
+        }
+
+        // Helper string sanitizers and formatting
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        function formatMarkdown(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code class="bg-slate-950 px-1 py-0.5 rounded text-violet-400 font-semibold">$1</code>')
+                .replace(/\n/g, '<br>');
+        }
+
+        // Trigger on load
+        window.onload = function() {
+            // Setup default story selection
+            selectVocalStory('sintra');
+        };
+    </script>
+</body>
+</html>
